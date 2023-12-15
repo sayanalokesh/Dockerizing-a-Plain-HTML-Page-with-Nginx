@@ -16,9 +16,9 @@ The goal of this project is to get acquainted with Docker and containerization. 
    
 3. Once the Instance is created, connect to it and install Nginx:
 ```bash
-    - sudo apt-get update -y
-    - sudo apt-get install nginx
-    - sudo systemctl status nginx
+sudo apt-get update -y
+sudo apt-get install nginx
+sudo systemctl status nginx
 ```
 ![image](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/assets/105637305/de581590-7f4b-4f8e-a94a-b762c5152dbf)
 
@@ -32,7 +32,7 @@ The goal of this project is to get acquainted with Docker and containerization. 
 
 5. Clone the GitHub repo
    ```bash
-    - git clone https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx.git
+    git clone https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx.git
    ```
 ![image](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/assets/105637305/87002af7-b66f-4784-b4aa-393baa1d69e1)
 
@@ -40,15 +40,15 @@ The goal of this project is to get acquainted with Docker and containerization. 
 1. Inside the repository, create a basic HTML file named `index.html`. You can find the index.html file [here](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/blob/main/index.html).
 2. Navigate to the repository using:
    ```bash
-    - cd Dockerizing-a-Plain-HTML-Page-with-Nginx
+    cd Dockerizing-a-Plain-HTML-Page-with-Nginx
    ```
 ![image](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/assets/105637305/e07a6b3f-74c3-47bd-b239-f0e6e9b9ce42)
 
 ## Nginx Configuration
 - Copy the `index.html` file to `/var/www/html`
 ```bash
-- sudo cp index.html /var/www/html
-- sudo systemctl restart nginx
+sudo cp index.html /var/www/html
+sudo systemctl restart nginx
   ```
 ![image](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/assets/105637305/10a36928-359e-4ed2-8421-ac72cd78cdca)
 
@@ -58,10 +58,10 @@ The goal of this project is to get acquainted with Docker and containerization. 
 
 - Copy the reverse proxy file to `/etc/nginx/sites-available` and execute the following commands:
 ```bash
-    - sudo cp reverseproxy /etc/nginx/sites-available
-    - sudo unlink /etc/nginx/sites-enabled/default
-    - sudo ln -s /etc/nginx/sites-available/reverseproxy /etc/nginx/sites-enabled/
-    - sudo systemctl restart nginx
+    sudo cp reverseproxy /etc/nginx/sites-available
+    sudo unlink /etc/nginx/sites-enabled/default
+    sudo ln -s /etc/nginx/sites-available/reverseproxy /etc/nginx/sites-enabled/
+    sudo systemctl restart nginx
   ```
 ![image](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/assets/105637305/c593ac74-f96d-4883-b8eb-6096e01dea0f)
 
@@ -72,17 +72,17 @@ The goal of this project is to get acquainted with Docker and containerization. 
 1. Build the Docker Image:
     - Login to Docker from the EC2 instance using:
    ```bash
-    - sudo docker login
+    sudo docker login
    ```
    ![image](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/assets/105637305/5e850498-772f-46f6-8331-f46bcbdf22b0)
    
    ```bash
-    - sudo docker build . -t sayanalokesh/containerization
+    sudo docker build . -t sayanalokesh/containerization
    ```
    ![image](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/assets/105637305/cedf81e6-822a-48c2-8061-36ca96a5f0b3)
    
    ```bash
-    - sudo docker run -it -d -p 3000:80 sayanalokesh/containerization
+    sudo docker run -it -d -p 3000:80 sayanalokesh/containerization
    ```
 ![image](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/assets/105637305/845ba934-27ac-45bc-a1cf-55949834110e)
 
@@ -97,7 +97,7 @@ The goal of this project is to get acquainted with Docker and containerization. 
 ## Push the image on ECR (Amazon Elastic Container Registry)
 1. To push the image to AWS ECR, we must have AWS CLI installed in our instance. You can just follow the commands to install the same in the instance.
 ```bash
-    - sudo apt install awscli -y
+    sudo apt install awscli -y
 ```
 3. Configure access keys obtained from IAM by following the instructions provided. Go to IAM and click on [My security credentials](https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials) under quick links.
 4. 
@@ -112,7 +112,7 @@ The goal of this project is to get acquainted with Docker and containerization. 
 
 5. Once you have got the access key, you can configure the same in the instance using the below commands.
 ```bash
-    - aws configure
+    aws configure
 ```
 ![image](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/assets/105637305/fefc660d-1c3f-49ac-902d-7fe4b1a32c90)
 
