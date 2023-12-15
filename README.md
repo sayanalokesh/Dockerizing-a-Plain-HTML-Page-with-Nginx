@@ -13,21 +13,25 @@ The goal of this project is to get acquainted with Docker and containerization. 
 1. To start, create an EC2 Instance. For this project, a t3.medium Instance was launched.
    
 2. Once the Instance is created, connect to it and install Nginx:
+```bash
     - `sudo apt-get update -y`
     - `sudo apt-get install nginx`
     - `sudo systemctl status nginx`
-
-3. Installation of Docker in EC2
+```
+4. Installation of Docker in EC2
     - Follow the steps shown in this [website](https://cloudcone.com/docs/article/how-to-install-docker-on-ubuntu-22-04-20-04/) to install Docker.
 
-4. Clone the GitHub repo
+5. Clone the GitHub repo
+   ```bash
     - `git clone https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx.git`
+   ```
 
 ## Basic HTML Page
 1. Inside the repository, create a basic HTML file named `index.html`. You can find the index.html file [here](https://github.com/sayanalokesh/Dockerizing-a-Plain-HTML-Page-with-Nginx/blob/main/index.html).
 2. Navigate to the repository using:
+   ```bash
     - `cd Dockerizing-a-Plain-HTML-Page-with-Nginx`
-
+   ```
 ## Nginx Configuration
 - Copy the `index.html` file to `/var/www/html`
 - `sudo cp index.html /var/www/html`
